@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Restaurant } from '../../types/restaurant';
+import { Restaurant } from '@/types/restaurant';
+import restaurantsData from '@/data/restaurants.json';
+import generateNewId from "@/services/idGenerator";
 
 const AddRestaurantPage = () => {
     const [name, setName] = useState('');
@@ -10,7 +12,7 @@ const AddRestaurantPage = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const newRestaurant: Restaurant = {
-            id: Date.now(), // @TODO Logic to add to ID generation mechanism
+            id: generateNewId(restaurantsData),
             name,
             address,
         };
