@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Restaurant } from '@/types/restaurant';
 import restaurantsData from '@/data/restaurants.json';
-import generateNewId from "@/services/idGenerator";
+import generateNewId from "@/services/idGeneratorService";
 
 const AddRestaurantPage = () => {
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const router = useRouter();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const newRestaurant: Restaurant = {
             id: generateNewId(restaurantsData),
@@ -17,10 +17,25 @@ const AddRestaurantPage = () => {
             address,
         };
 
-        // @TODO Logic to add newRestaurant to JSON file or another data storage
-        console.log(newRestaurant);
+        try {
+            const response = await fetch('/api/restaurants', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newRestaurant),
+            });
 
-        router.push('/');
+            if (response.ok) {
+                const addedRestaurant = await response.json();
+                console.log('Added restaurant:', addedRestaurant);
+                router.push('/');
+            } else {
+                console.error('Failed to add restaurant');
+            }
+        } catch (error) {
+            console.error('Error adding restaurant:', error);
+        }
     };
 
     return (

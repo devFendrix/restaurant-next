@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
-import { Restaurant } from '../../types/restaurant';
-import restaurantsData from '../../data/restaurants.json';
+import { Restaurant } from '@/types/restaurant';
+import restaurantsData from '@/data/restaurants.json';
 import Link from "next/link";
 
 const RestaurantPage = () => {

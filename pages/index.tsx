@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Restaurant } from '../types/restaurant';
-import restaurantsData from '../data/restaurants.json';
+import { Restaurant } from '@/types/restaurant';
+import restaurantsData from '@/data/restaurants.json';
 
 const HomePage = () => {
     return (
