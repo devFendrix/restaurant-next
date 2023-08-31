@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Le Ravagé", "address": "10 Rue Aristide Briand, 92130 Issy-les-Moulineaux" },
+  { "id": 2, "name": "Le Dévasté", "address": "12 Rue Aristide Briand, 92130 Issy-les-Moulineaux" },
+  { "id": 3, "name": "Le Désaxé", "address": "14 Rue Aristide Briand, 92130 Issy-les-Moulineaux" }
+]
