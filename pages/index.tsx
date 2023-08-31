@@ -6,6 +6,9 @@ const HomePage = () => {
     return (
         <div>
             <h1>Liste des restaurants</h1>
+            <button>
+                <Link href={`/restaurant/addRestaurant`}>Ajouter un restaurant</Link>
+            </button>
             <ul>
                 {restaurantsData.map((restaurant: Restaurant) => (
                     <li key={restaurant.id}>
