@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "restaurantId": 1,
+    "email": "artichaud@gmail.com",
+    "rating": 4,
+    "comment": "Très bon restaurant, je recommande !"
+  },
+  {
+    "id": 2,
+    "restaurantId": 1,
+    "email": "artichaud-pas-bien@gmail.com",
+    "rating": 2,
+    "comment": "Horrrible, je ne recommande pas !"
+  },
+  {
+    "id": 1,
+    "restaurantId": 2,
+    "email": "artichaud@gmail.com",
+    "rating": 4,
+    "comment": "Très bon restaurant, je recommande !"
+  },
+  {
+    "id": 1,
+    "restaurantId": 3,
+    "email": "artichaud@gmail.com",
+    "rating": 4,
+    "comment": "Très bon restaurant, je recommande !"
+  },
+  {
+    "id": 1,
+    "restaurantId": 3,
+    "email": "artichaud-bien@gmail.com",
+    "rating": 5,
+    "comment": "Très bon restaurant, je recommande !"
+  }
+]
