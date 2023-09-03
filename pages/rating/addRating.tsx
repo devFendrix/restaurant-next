@@ -5,6 +5,9 @@ import restaurantsData from '@/data/restaurants.json';
 import ratingsData from '@/data/ratings.json';
 import generateNewId from "@/services/idGeneratorService";
 import {Restaurant} from "@/types/restaurant";
+import ratingStyle from "@/styles/rating.module.css";
+import style from "@/styles/global.module.css"
+import Link from "next/link";
 
 const AddRatingPage = () => {
     const [restaurantId, setRestaurantId] = useState(1);
@@ -24,7 +27,7 @@ const AddRatingPage = () => {
         };
 
         try {
-            const response = await fetch('/api/ratings', {
+            const response = await fetch('/api/rating', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,31 +48,33 @@ const AddRatingPage = () => {
     };
 
     return (
-        <div>
+        <div className={ratingStyle.container_form}>
             <h1>Ajouter une note</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email :</label>
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
-
+            <form onSubmit={handleSubmit} className={ratingStyle.form}>
+                <div className={ratingStyle.container_imput}>
+                    <label className={ratingStyle.imput_element}>Email :</label>
+                    <input className={ratingStyle.label_element} placeholder={"Email"} type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
-                <div>
-                    <label>Restaurant :</label>
-                    <select onChange={(e) => setRestaurantId(Number(e.target.value))}>
+                <div className={ratingStyle.container_imput}>
+                    <label className={ratingStyle.imput_element}>Restaurant :</label>
+                    <select className={ratingStyle.label_element} onChange={(e) => setRestaurantId(Number(e.target.value))}>
                         {restaurantsData.map((restaurant: Restaurant) => (
                             <option key={restaurant.id} value={restaurant.id}>{restaurant.name}</option>))}
                     </select>
                 </div>
-                <div>
-                    <label>Note :</label>
-                    <input type="number" value={rating} onChange={(e) => setRating(Number(e.target.value))}/>
+                <div className={ratingStyle.container_imput}>
+                    <label className={ratingStyle.imput_element}>Note :</label>
+                    <input className={ratingStyle.label_element} type="number" min={0} max={5} value={rating} onChange={(e) => setRating(Number(e.target.value))}/>
                 </div>
-                <div>
-                    <label>Commentaire :</label>
-                    <input type="text" value={comment} onChange={(e) => setComment(e.target.value)}/>
+                <div className={ratingStyle.container_imput}>
+                    <label className={ratingStyle.imput_element}>Commentaire :</label>
+                    <input className={ratingStyle.label_element} type="text" value={comment} onChange={(e) => setComment(e.target.value)}/>
 
                 </div>
-                <button type="submit">Ajouter</button>
+                <div className={ratingStyle.container_submit}>
+                    <button type="submit">Ajouter</button>
+                    <button><Link className={style.link} href={`/`}>Retour</Link></button>
+                </div>
             </form>
         </div>
     );

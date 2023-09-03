@@ -9,6 +9,9 @@ const HomePage = () => {
             <button>
                 <Link href={`/restaurant/addRestaurant`}>Ajouter un restaurant</Link>
             </button>
+            <button>
+                <Link href={`/rating/addRating`}>Ajouter un avis</Link>
+            </button>
             <ul>
                 {restaurantsData.map((restaurant: Restaurant) => (
                     <li key={restaurant.id}>

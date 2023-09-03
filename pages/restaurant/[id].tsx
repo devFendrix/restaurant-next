@@ -16,7 +16,7 @@ const RestaurantPage = () => {
 
     return (
         <div>
-            <Link href={`/`}>Retour</Link>
+            <button><Link href={`/`}>Retour</Link></button>
             <h1>Nom : {restaurant.name}</h1>
             <p>Adresse : {restaurant.address}</p>
             <div>

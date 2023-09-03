@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Restaurant } from '@/types/restaurant';
 import restaurantsData from '@/data/restaurants.json';
 import generateNewId from "@/services/idGeneratorService";
+import Link from "next/link";
 
 const AddRestaurantPage = () => {
     const [name, setName] = useState('');
@@ -29,7 +30,7 @@ const AddRestaurantPage = () => {
             if (response.ok) {
                 const addedRestaurant = await response.json();
                 console.log('Added restaurant:', addedRestaurant);
-                router.push('/');
+                await router.push('/');
             } else {
                 console.error('Failed to add restaurant');
             }
@@ -40,6 +41,7 @@ const AddRestaurantPage = () => {
 
     return (
         <div>
+            <button><Link href={`/`}>Retour</Link></button>
             <h1>Ajouter un restaurant</h1>
             <form onSubmit={handleSubmit}>
                 <div>
